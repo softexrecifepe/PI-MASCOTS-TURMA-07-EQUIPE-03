@@ -1,9 +1,9 @@
 // src/app/page.tsx
 import React from 'react';
-import Input from '@/components/input';
-import Title from '@/components/title';
+import Input from '@/components/Input';
+import Title from '@/components/Title';
 import '@/app/globals.css';
-import {Button} from '@/components/button';
+import {Button} from '@/components/Button';
 
 const HomePage = () => {
   return (
