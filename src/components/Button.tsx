@@ -12,4 +12,4 @@ const Button: React.FC<ButtonProps> = ({ label }) => {
   );
 };
 
-export default Button;
+export { Button };
