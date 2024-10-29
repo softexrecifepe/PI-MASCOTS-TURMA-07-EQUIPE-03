@@ -1,19 +1,16 @@
-// src/app/page.tsx
 import React from 'react';
-import Input from '@/components/Input';
-import Title from '@/components/Title';
-import '@/app/globals.css';
-import {Button} from '@/components/Button';
+import Header from './components/Header/Header';
+import MidSection from './components/MidSection/MidSection';
+import Footer from './components/Footer/Footer';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
-    <div>
-      <Title text="Internamentos" />
-      <form>
-        <Input label="Nome do Pet" placeholder="Digite o nome do pet" />
-        <Input label="Nome do Dono" placeholder="Digite o nome do dono" />
-        <Button label="Enviar" />
-      </form>
+    <div data-layername="homepage" className="flex overflow-hidden flex-col bg-white">
+      <Header
+        title="Garantindo que seus animais de estimação tenham uma vida melhor"       
+      />
+      <MidSection />
+      <Footer />
     </div>
   );
 };
