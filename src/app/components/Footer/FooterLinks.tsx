@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const FooterLinks: React.FC = () => {
@@ -11,6 +12,9 @@ const FooterLinks: React.FC = () => {
             {link}
           </li>
         ))}
+        <li>
+          <Link href="../../management">Gerenciamento</Link>
+        </li>
       </ul>
     </div>
   );
