@@ -5,8 +5,17 @@ import Notification from "../../../public/bell.svg";
 import Image from "next/image";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
+import { Sidebar } from "../components/Sidebar";
 
 export const Header: React.FC = () => {
+
+  const linksSidebar = [
+    {name:"Home", href:"/"},
+    {name:"Consultas", href:"/consultetion"},
+    {name:"Documentos", href:"/documents"},
+    {name:"Inventário", href:"/Inventory"},
+  ]
+
   return (
     <>
       <header className="px-4 flex justify-between items-center bg-accentThree text-[191919] py-3 shadow-md">
@@ -25,8 +34,13 @@ export const Header: React.FC = () => {
           <Input placeholder={`Pesquise aqui...`} label={""} />
         </div>
       </header>
-      <div className="flex my-4 w-[50%]">
-        <Button label={"+ Consulta"} />
+      <div className="w-[20%]">
+        <div className="flex my-4 w-[100%]">
+          <Button label={"+ Consulta"} />
+        </div>
+        <aside className="w-[100%] h-full bg-[#EBEDED] text-black p-4 rounded">
+          <Sidebar links={linksSidebar} />
+        </aside>
       </div>
     </>
   );
