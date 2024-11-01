@@ -6,9 +6,7 @@ import Footer from './components/Footer/Footer';
 const HomePage: React.FC = () => {
   return (
     <div data-layername="homepage" className="flex overflow-hidden flex-col bg-white">
-      <Header
-        title="Garantindo que seus animais de estimação tenham uma vida melhor"       
-      />
+      <Header />
       <MidSection />
       <Footer />
     </div>
