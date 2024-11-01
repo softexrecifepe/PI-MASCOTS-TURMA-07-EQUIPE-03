@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import Image from 'next/image';
 
@@ -7,10 +9,23 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
+      {/* Navbar fixa com transparência */}
       <header
         data-layername="header"
+<<<<<<< Updated upstream
         className="relative flex overflow-hidden flex-col items-center justify-center w-full h-screen bg-zinc-800 bg-opacity-20"
       >
         {/* Camada semi-transparente para escurecer a imagem de fundo */}
@@ -36,8 +51,27 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
               {title}
             </h1>
           </div>
+=======
+        className={`fixed top-0 w-full h-16 transition-colors duration-300 ${
+          isScrolled ? 'bg-zinc-800 bg-opacity-80 backdrop-blur-md' : 'bg-transparent'
+        } z-50 flex justify-center`}
+      >
+        <div className="flex items-center justify-between w-full max-w-3xl px-7 h-full">
+          <NavBar />
+>>>>>>> Stashed changes
         </div>
       </header>
+
+      {/* Seção da imagem de fundo */}
+      <div className="relative w-full h-screen">
+        <Image
+          alt=""
+          src="/pet.svg"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
     </>
   );
 };
