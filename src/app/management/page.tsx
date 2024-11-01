@@ -6,15 +6,22 @@ import Image from "next/image";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
 import { Sidebar } from "../components/Sidebar";
+import { Cards } from "../components/Cards";
 
 export const Header: React.FC = () => {
-
   const linksSidebar = [
-    {name:"Home", href:"/"},
-    {name:"Consultas", href:"/consultetion"},
-    {name:"Documentos", href:"/documents"},
-    {name:"Inventário", href:"/Inventory"},
-  ]
+    { name: "Home", href: "/" },
+    { name: "Consultas", href: "/consultetion" },
+    { name: "Documentos", href: "/documents" },
+    { name: "Inventário", href: "/Inventory" },
+  ];
+
+  const linksCards = [
+    { name: "Atendimento", href: "/" },
+    { name: "Vacinas", href: "/consultetion" },
+    { name: "Exames", href: "/documents" },
+    { name: "Internamento", href: "/Inventory" },
+  ];
 
   return (
     <>
@@ -34,13 +41,18 @@ export const Header: React.FC = () => {
           <Input placeholder={`Pesquise aqui...`} label={""} />
         </div>
       </header>
-      <div className="w-[20%]">
-        <div className="flex my-4 w-[100%]">
-          <Button label={"+ Consulta"} />
+      <div className="flex">
+        <div className="w-[20%]">
+          <div className="flex my-4 w-[100%]">
+            <Button label={"+ Consulta"} />
+          </div>
+          <aside className="w-[100%] h-full bg-[#EBEDED] text-black p-4 rounded">
+            <Sidebar links={linksSidebar} />
+          </aside>
         </div>
-        <aside className="w-[100%] h-full bg-[#EBEDED] text-black p-4 rounded">
-          <Sidebar links={linksSidebar} />
-        </aside>
+        <div>
+          <Cards links={linksCards} />
+        </div>
       </div>
     </>
   );
