@@ -5,17 +5,17 @@ const FooterLinks: React.FC = () => {
   const links = ['Consulta', 'Produtos', 'Envio', 'Devoluções', 'Sobre nós'];
 
   return (
-    <div className="flex flex-col min-w-[240px] text-neutral-950 w-[270px]">
-      <h3 data-layername="mascots" className="text-2xl font-bold">MASCOT'S</h3>
-      <ul className="flex flex-col mt-6 max-w-full text-xl font-light w-[270px]">
+    <div className="flex flex-col min-w-[150px] text-neutral-950">
+      <h3 data-layername="mascots" className="text-base font-semibold">MASCOT'S</h3>
+      <ul className="flex flex-col mt-2 text-xs font-light">
         {links.map((link, index) => (
-          <li key={index} data-layername={link.toLowerCase()} className={`mt-3 transition-colors duration-300 hover:text-blue-600`}>
+          <li key={index} data-layername={link.toLowerCase()} className="mt-1 transition-colors duration-200 hover:text-blue-600">
             <Link href={`/${link.toLowerCase()}`} className="hover:underline">
               {link}
             </Link>
           </li>
         ))}
-        <li className="mt-3 transition-colors duration-300 hover:text-blue-600">
+        <li className="mt-1 transition-colors duration-200 hover:text-blue-600">
           <Link href="../../management" className="hover:underline">Gerenciamento</Link>
         </li>
       </ul>
