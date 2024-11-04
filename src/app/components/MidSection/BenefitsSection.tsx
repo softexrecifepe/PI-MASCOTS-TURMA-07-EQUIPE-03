@@ -7,10 +7,15 @@ interface BenefitCardProps {
 }
 
 const BenefitCard: React.FC<BenefitCardProps> = ({ imageSrc, altText, title }) => (
-  <div className="relative">
-    <img loading="lazy" src={imageSrc} alt={altText} className="object-contain z-0 my-auto rounded-3xl aspect-[0.77] min-w-[240px] w-[487px] max-md:max-w-full" />
-    <div className="absolute bottom-6 gap-2.5 self-start px-7 py-6 bg-white rounded-[48px] max-md:px-5">
-      {title}
+  <div className="relative group transition-transform duration-300 hover:scale-105 shadow-md rounded-3xl overflow-hidden">
+    <img 
+      loading="lazy" 
+      src={imageSrc} 
+      alt={altText} 
+      className="object-cover z-0 h-64 w-full transition-opacity duration-300 group-hover:opacity-70" 
+    />
+    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent rounded-t-[48px] transition-transform duration-300 group-hover:translate-y-2">
+      <h3 className="text-xl font-semibold text-neutral-950">{title}</h3>
     </div>
   </div>
 );
@@ -24,9 +29,9 @@ const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section data-layername="mid" className="flex flex-col justify-center items-end px-20 py-16 w-full font-bold bg-white text-neutral-950 max-md:px-5 max-md:max-w-full">
+    <section data-layername="mid" className="flex flex-col justify-center items-center px-20 py-16 w-full font-bold bg-white text-neutral-950 max-md:px-5 max-md:max-w-full">
       <div className="flex flex-col w-full max-w-[1241px] max-md:max-w-full">
-        <h2 data-layername="beneficios" className="gap-2.5 self-stretch p-2.5 text-5xl leading-none max-md:text-4xl">
+        <h2 data-layername="beneficios" className="gap-2.5 self-stretch p-2.5 text-5xl leading-none max-md:text-4xl text-center">
           BENEFÍCIOS
         </h2>
         <div className="flex overflow-x-auto relative gap-10 items-start mt-14 w-full text-3xl leading-none max-md:mt-10 max-md:max-w-full">
