@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Logo from "../../../public/logo.svg";
 import PawVet from "../../../public/veterinary_paw.svg";
 import Notification from "../../../public/bell.svg";
@@ -8,10 +9,32 @@ import Input from "../components/Input";
 import { Button } from "../components/Button";
 import { Sidebar } from "../components/Sidebar";
 import { Cards } from "../components/Cards";
+import { getAnimals } from "../../../get-animals";
+
+type Animal = {
+  pet_id: number;
+  pet_name: string;
+  age: string;
+  allergies: string;
+  behavior: string;
+  breed: string;
+  diseases: string;
+  gender: string;
+  microchip_code: string;
+  owners_cpf: string;
+  physical_characteristics: string;
+  species: string;
+  weight: string;
+};
 
 export const Header: React.FC = () => {
+
+  const [showPetsDiv, setShowPetsDiv] = useState(false); // Estado para controlar a visibilidade da div
+  const [animals, setAnimals] = useState<Animal[]>();
+
   const linksSidebar = [
     { name: "Home", href: "#" },
+    { name: "Pets", href: "#" },
     { name: "Consultas", href: "#" },
     { name: "Documentos", href: "#" },
     { name: "Inventário", href: "#" },
@@ -38,6 +61,41 @@ export const Header: React.FC = () => {
       textColor: "text-white",
     },
   ];
+
+  // Função para lidar com o clique nos links
+  const handleLinkClick = (link: { name: string }) => {
+    if (link.name === "Pets") {
+      setShowPetsDiv(true); // Mostra a div ao clicar em "Pets"
+    } else {
+      setShowPetsDiv(false); // Oculta a div para outros links
+    }
+    console.log(handleGetPets());
+  };
+
+  async function handleGetPets() {
+    try {
+    } catch (error) {
+      console.error("Ocorreu algum erro na requisição", error);
+    }
+    try {
+      const result = await getAnimals();
+
+      if (result?.erro === "true") {
+        alert("Erro na requisição dos dados.");
+        return;
+      }
+      setAnimals(result)
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+      alert("Ocorreu um erro ao obter o endereço.");
+    }
+    // finally {
+    //   setLoading(false);
+    // }
+    // handleGetPets()
+    
+  }
 
   return (
     <>
@@ -67,11 +125,78 @@ export const Header: React.FC = () => {
             </Button>
           </div>
           <aside className="w-[100%] h-full bg-[#EBEDED] text-black p-4 rounded">
-            <Sidebar links={linksSidebar} />
+            <Sidebar links={linksSidebar} onClickLink={handleLinkClick}/>
           </aside>
         </div>
         <div className="flex h-full flex-col py-4 gap-4">
           <Cards links={linksCards} />
+          {showPetsDiv && (
+            <div className=" flex flex-col w-[100%] bg-accentThree">
+              <ul>
+                {animals?.map((animal) => (
+                  
+                    <li className="py-5" key={animal.pet_id}>
+                      <table>
+                        <tr>
+                          <td>
+                            <strong>Nome do animal:</strong>
+                          </td>
+                          <td>{animal.pet_name}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Comportamento:</strong>
+                          </td>
+                          <td>{animal.behavior}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Espécie:</strong>
+                          </td>
+                          <td>{animal.species}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Gênero:</strong>
+                          </td>
+                          <td>{animal.gender}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Idade:</strong>
+                          </td>
+                          <td>{animal.age}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Raça:</strong>
+                          </td>
+                          <td>{animal.breed}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Peso:</strong>
+                          </td>
+                          <td>{animal.weight}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Característica:</strong>
+                          </td>
+                          <td>{animal.physical_characteristics}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Alergia:</strong>
+                          </td>
+                          <td>{animal.allergies}</td>
+                        </tr>
+                      </table>
+                    </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </>
