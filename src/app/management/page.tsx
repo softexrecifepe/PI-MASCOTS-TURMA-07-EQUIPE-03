@@ -27,7 +27,7 @@ type Animal = {
   weight: string;
 };
 
-export const Header: React.FC = () => {
+export const Management: React.FC = () => {
 
   const [showPetsDiv, setShowPetsDiv] = useState(false); // Estado para controlar a visibilidade da div
   const [animals, setAnimals] = useState<Animal[]>();
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
   const linksCards = [
     {
       name: "Atendimento",
-      href: "#",
+      href: "/management/atendimento",
       bgColor: "bg-red-600",
       textColor: "text-white",
     },
@@ -203,4 +203,4 @@ export const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Management;
