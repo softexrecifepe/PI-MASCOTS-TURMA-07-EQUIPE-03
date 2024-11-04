@@ -101,7 +101,7 @@ export const Management: React.FC = () => {
     <>
       <header className="px-4 flex justify-between items-center bg-accentThree text-[191919] py-3 shadow-md">
         <div className="flex items-center">
-          <div className=" border border-spacing-12 border-primary rounded-full w-11 p-2">
+          <div className="border border-spacing-12 border-primary rounded-full w-11 p-2">
             <Image src={PawVet} alt="Pata de pet" sizes="100%" />
           </div>
           <div className="w-[50%]">
@@ -125,74 +125,60 @@ export const Management: React.FC = () => {
             </Button>
           </div>
           <aside className="w-[100%] h-full bg-[#EBEDED] text-black p-4 rounded">
-            <Sidebar links={linksSidebar} onClickLink={handleLinkClick}/>
+            <Sidebar links={linksSidebar} onClickLink={handleLinkClick} />
           </aside>
         </div>
         <div className="flex h-full flex-col py-4 gap-4">
           <Cards links={linksCards} />
           {showPetsDiv && (
-            <div className=" flex flex-col w-[100%] bg-accentThree">
-              <ul>
+            <div className="flex flex-col w-[100%] bg-accentThree p-4 rounded shadow-lg">
+              <ul className="space-y-4">
                 {animals?.map((animal) => (
-                  
-                    <li className="py-5" key={animal.pet_id}>
-                      <table>
+                  <li
+                    key={animal.pet_id}
+                    className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+                  >
+                    <table className="w-full text-left">
+                      <tbody>
                         <tr>
-                          <td>
-                            <strong>Nome do animal:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Nome do animal:</td>
                           <td>{animal.pet_name}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Comportamento:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Comportamento:</td>
                           <td>{animal.behavior}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Espécie:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Espécie:</td>
                           <td>{animal.species}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Gênero:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Gênero:</td>
                           <td>{animal.gender}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Idade:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Idade:</td>
                           <td>{animal.age}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Raça:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Raça:</td>
                           <td>{animal.breed}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Peso:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Peso:</td>
                           <td>{animal.weight}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Característica:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Característica:</td>
                           <td>{animal.physical_characteristics}</td>
                         </tr>
                         <tr>
-                          <td>
-                            <strong>Alergia:</strong>
-                          </td>
+                          <td className="font-semibold pr-2">Alergia:</td>
                           <td>{animal.allergies}</td>
                         </tr>
-                      </table>
-                    </li>
+                      </tbody>
+                    </table>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -200,7 +186,7 @@ export const Management: React.FC = () => {
         </div>
       </div>
     </>
-  );
+  );  
 };
 
 export default Management;

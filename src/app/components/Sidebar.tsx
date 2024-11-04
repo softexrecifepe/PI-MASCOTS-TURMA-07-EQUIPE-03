@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from "react";
 
 interface LinkItem {
@@ -8,7 +8,7 @@ interface LinkItem {
 
 interface SidebarProps {
   links: LinkItem[];
-  onClickLink?:(link: LinkItem)=>void;
+  onClickLink?: (link: LinkItem) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
@@ -17,17 +17,17 @@ const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
       <ul>
         {links.map((link, index) => (
           <li key={index} className="mb-1">
-            <a 
-            onClick={(e) => {
-              e.preventDefault(); // Impede o redirecionamento imediato
-              if (onClickLink) {
-                onClickLink(link); // Chama a função passada por prop, se existir
-              }
-            }}
-            href={link.href}
-            className="hover:bg-gray-700 p-2 rounded block"
+            <a
+              onClick={(e) => {
+                e.preventDefault(); // Impede o redirecionamento imediato
+                if (onClickLink) {
+                  onClickLink(link); // Chama a função passada por prop, se existir
+                }
+              }}
+              href={link.href}
+              className="p-2 rounded block transition duration-200 hover:bg-gray-300 hover:shadow-md hover:text-gray-900"
             >
-                {link.name}
+              {link.name}
             </a>
           </li>
         ))}
