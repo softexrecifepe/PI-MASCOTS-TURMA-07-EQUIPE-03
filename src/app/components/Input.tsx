@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface InputProps {
-  label: string;
+  label?: string;
   placeholder: string;
 }
 
 export const Input: React.FC<InputProps> = ({ label, placeholder }) => {
   return (
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2">{label}</label>
+    <div>
+      <label className="block text-gray-700 text-sm font-bold">{label}</label>
       <input
         type="text"
         placeholder={placeholder}
