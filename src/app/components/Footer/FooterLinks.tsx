@@ -6,7 +6,7 @@ const FooterLinks: React.FC = () => {
 
   return (
     <div className="flex flex-col min-w-[240px] text-neutral-950 w-[270px]">
-      <h3 data-layername="mascots" className="text-2xl font-medium">MASCOT'S</h3>
+      <h3 data-layername="mascots" className="text-2xl font-bold">MASCOT'S</h3>
       <ul className="flex flex-col mt-6 max-w-full text-xl font-light w-[270px]">
         {links.map((link, index) => (
           <li key={index} data-layername={link.toLowerCase()} className={`mt-3 transition-colors duration-300 hover:text-blue-600`}>

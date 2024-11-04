@@ -89,6 +89,7 @@ export const Management: React.FC = () => {
     } catch (error) {
       console.log(error);
       alert("Ocorreu um erro ao obter o endereço.");
+      console.log(error)
     }
     // finally {
     //   setLoading(false);

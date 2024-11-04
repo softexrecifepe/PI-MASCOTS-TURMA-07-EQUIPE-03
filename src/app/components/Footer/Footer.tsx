@@ -4,28 +4,23 @@ import SocialLinks from './SocialLinks';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col gap-2.5 px-14 pt-16 pb-20 mt-14 bg-slate-50 max-md:px-5 max-md:mt-10 max-md:max-w-full transition-colors duration-300">
-      <div className="flex flex-col max-md:max-w-full">
-        <div className="flex flex-wrap gap-10 items-start max-md:max-w-full">
+    <footer className="flex flex-col items-stretch p-6 bg-slate-50 text-center text-sm text-zinc-500">
+      <div className="flex flex-col w-full items-center p-4">
+        <div className="flex flex-wrap justify-center gap-4 mb-4">
           <FooterLinks />
           <SocialLinks />
         </div>
-        <div className="flex flex-wrap gap-4 items-center self-start mt-14 text-xl font-light text-zinc-500 max-md:mt-10 max-md:max-w-full">
+        <div className="flex flex-wrap gap-2 items-center justify-center">
           <div
             data-layername="mascotsCo"
-            className="self-stretch my-auto w-[135px] transition-transform duration-300 hover:scale-105"
+            className="transition-transform duration-300 hover:scale-105"
           >
             © Mascots.co
           </div>
-          <div
-            data-layername=""
-            className="self-stretch my-auto text-2xl w-[11px] transition-transform duration-300 hover:scale-105"
-          >
-            •
-          </div>
+          <span className="text-lg">•</span>
           <div
             data-layername="termosEPoliticaDePrivacidade"
-            className="self-stretch my-auto w-[374px] transition-transform duration-300 hover:scale-105"
+            className="transition-transform duration-300 hover:scale-105"
           >
             Termos e Política de Privacidade
           </div>
