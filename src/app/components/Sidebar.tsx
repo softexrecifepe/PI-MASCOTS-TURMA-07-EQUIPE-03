@@ -42,8 +42,8 @@ const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
                   />
                 )}
               <Link
-                onClick={(e) => {
-                  e.preventDefault(); // Impede o redirecionamento imediato
+                onClick={() => {
+                  // e.preventDefault(); // Impede o redirecionamento imediato
                   if (onClickLink) {
                     onClickLink(link); // Chama a função passada por prop, se existir
                   }
