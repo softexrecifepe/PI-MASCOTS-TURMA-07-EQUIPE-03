@@ -19,7 +19,7 @@ const NavBar: React.FC = () => {
   return (
     <motion.nav
       data-layername="navBar"
-      className={`fixed top-0 left-0 right-0 z-50 mx-auto flex items-center justify-between px-9 py-3 bg-white border border-solid border-neutral-200 rounded-[54px] shadow-md transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 mx-auto flex items-center justify-between px-9 py-2 bg-white border border-solid border-neutral-200 rounded-[54px] shadow-md transition-all duration-300 ${
         isSticky ? 'rounded-none' : 'mt-6'
       } max-md:px-5 max-md:max-w-full`}
       initial={{ opacity: 0 }}
@@ -38,21 +38,21 @@ const NavBar: React.FC = () => {
         <motion.div
           data-layername="consulta"
           className="hover:text-indigo-600"
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
         >
           <Link href="/consulta">Consulta</Link>
         </motion.div>
         <motion.div
           data-layername="petShop"
           className="hover:text-indigo-600"
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
         >
           Pet Shop
         </motion.div>
         <motion.div
           data-layername="ofertas"
           className="hover:text-indigo-600"
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
         >
           Ofertas
         </motion.div>
