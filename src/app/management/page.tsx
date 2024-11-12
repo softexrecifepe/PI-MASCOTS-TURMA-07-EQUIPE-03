@@ -8,20 +8,20 @@ export const Management: React.FC = () => {
 
   const linksCards = [
     {
-      name: "Atendimento",
-      href: "/management/atendimento",
-      bgColor: "bg-red-600",
+      name: "Animais",
+      href: "/management/patients",
+      bgColor: "bg-green-500",
       textColor: "text-white",
     },
     {
-      name: "Vacinas",
+      name: "Animais internados",
       href: "#",
-      bgColor: "bg-green-500",
+      bgColor: "bg-red-600",
       textColor: "text-white",
     },
     { name: "Exames", href: "#" },
     {
-      name: "Internamentos",
+      name: "Monitoramento",
       href: "#",
       bgColor: "bg-purple-500",
       textColor: "text-white",
@@ -42,7 +42,7 @@ export const Management: React.FC = () => {
         <div className="w-full h-full bg-accentThree rounded-md flex gap-2 p-4">
           {/* Coluna da Esquerda */}
           <motion.div className="flex flex-col w-[20%] bg-gray-600 text-white rounded-md p-4 shadow-md">
-            <p className="font-semibold">Conteúdo da Coluna Esquerda</p>
+            <p className="font-semibold">Lista de atendiemnto &quot;do DIA&quot;</p>
           </motion.div>
           {/* Coluna da Direita */}
           <div className="w-[80%] grid grid-cols-2 gap-2">

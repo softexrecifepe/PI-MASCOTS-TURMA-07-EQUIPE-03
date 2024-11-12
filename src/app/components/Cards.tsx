@@ -20,7 +20,7 @@ const Cards: React.FC<CardsProps> = ({ links }) => {
             <li className="mb-1 block">
               <a 
               href={link.href}
-              className="w-full h-full py-16 px-20 flex items-center justify-center rounded-lg hover:bg-blue-600 transition duration-300"
+              className="w-full h-full py-10 px-12 flex items-center justify-center rounded-lg hover:bg-blue-600 transition duration-300"
               >{link.name}
               </a>
             </li>

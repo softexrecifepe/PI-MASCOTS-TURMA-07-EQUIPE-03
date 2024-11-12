@@ -71,7 +71,8 @@ const Pets: React.FC = () => {
   //     { name: "Inventário", href: "#" },
   //   ];
   return (
-    <div>
+    <div className="flex justify-center flex-col w-full p-2 me-2 pe-4 gap-2 overflow-y-aut">
+      <div className="w-full flex justify-center font-bold uppercase shadow-md rounded-md p-2">Pacientes</div>
       {/* <div className="flex border-t border-primary p-4 gap-4 bg-white">
         <div className="w-1/4 h-full">
           <aside className="bg-accentThree rounded-lg p-4 shadow-md">
