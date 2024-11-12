@@ -1,7 +1,6 @@
 "use client";
-// import { Sidebar } from "@/app/components/Sidebar";
-// import { getAnimals } from "../../../../get-animals";
-import { useState } from "react";
+import { getAnimals } from "../../../../get-animals";
+import { useEffect, useState } from "react";
 
 interface Animal {
   pet_id: number;
@@ -19,68 +18,40 @@ interface Animal {
   weight: string;
 }
 
-// interface PetsProps {
-//   pets: Animal[];
-// }
-
 const Pets: React.FC = () => {
-  const [showPetsDiv, setShowPetsDiv] = useState(false); // Estado para controlar a visibilidade da div
   const [animals, setAnimals] = useState<Animal[]>();
-
-  // Função para lidar com o clique nos links
-  const handleLinkClick = (link: { name: string }) => {
-    if (link.name === "Pets") {
-      setShowPetsDiv(true); // Mostra a div ao clicar em "Pets"
-    } else {
-      setShowPetsDiv(false); // Oculta a div para outros links
-    }
-    // handleGetPets();
-  };
-
-  // async function handleGetPets() {
-  //   try {
-  //   } catch (error) {
-  //     console.error("Ocorreu algum erro na requisição", error);
-  //   }
-  //   try {
-  //     const result = await getAnimals();
-
-  //     if (result?.erro === "true") {
-  //       alert("Erro na requisição dos dados.");
-  //       return;
-  //     }
-  //     setAnimals(result);
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert("Ocorreu um erro ao obter o endereço.");
-  //     console.log(error);
-  //   }
-  //   // finally {
-  //   //   setLoading(false);
-  //   // }
-  //   // handleGetPets()
-  // }
-  //   const linksSidebar = [
-  //     { name: "Home", href: "/management" },
-  //     { name: "Pets", href: "/management/pacientes"},
-  //     { name: "Cadastros", href: "" },
-  //     { name: "Internamento", href: "#" },
-  //     { name: "Exames", href: "#" },
-  //     { name: "Agenda", href: "#" },
-  //     { name: "Inventário", href: "#" },
-  //   ];
+  const [loading, setLoading] = useState(true)
+  
+  //Função para fazer a rquisição dos dados dos animais
+  useEffect(()=>{
+    setLoading(true)
+    const fetchAnimals = async () => {
+      try {
+        const result = await getAnimals();
+        if (result?.erro === "true") {
+          alert("Erro na requisição dos dados.")
+          return;
+        }
+        setAnimals(result)
+      } catch (error) {
+        console.error("Erro na requisição dos dados", error);
+        alert("Ocorreu um erro ao obter os dados dos animais.")
+      } finally{
+        setLoading(false)
+      }
+    };
+    fetchAnimals()
+  },[])
+  
   return (
     <div className="flex justify-center flex-col w-full p-2 me-2 pe-4 gap-2 overflow-y-aut">
       <div className="w-full flex justify-center font-bold uppercase shadow-md rounded-md p-2">Pacientes</div>
-      {/* <div className="flex border-t border-primary p-4 gap-4 bg-white">
-        <div className="w-1/4 h-full">
-          <aside className="bg-accentThree rounded-lg p-4 shadow-md">
-            <Sidebar links={linksSidebar} />
-          </aside>
+      
+      {loading ? ( // Exibe o indicador de carregamento
+        <div className="flex justify-center items-center h-64">
+          <span className="text-lg font-semibold">Carregando...</span>
         </div>
-      </div> */}
-      {showPetsDiv && (
+      ) : (
         <div className="flex flex-col w-[100%] bg-accentThree p-4 rounded shadow-lg">
           <ul className="space-y-4">
             {animals?.map((animal) => (
