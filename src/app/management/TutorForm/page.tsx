@@ -1,8 +1,7 @@
 import TutorForm from "./TutorForm";
 
 const CadastrarTutor = () => (
-  <div>
-    <h1>Cadastro de Tutor</h1>
+  <div className="pt-6">
     <TutorForm />
   </div>
 );

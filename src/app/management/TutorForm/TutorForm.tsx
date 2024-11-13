@@ -1,5 +1,4 @@
-// components/TutorForm.tsx
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -30,15 +29,60 @@ const TutorForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Cadastrar Tutor</h2>
-      <input type="text" name="owners_cpf" placeholder="CPF" value={tutor.owners_cpf} onChange={handleChange} required />
-      <input type="text" name="owners_name" placeholder="Nome" value={tutor.owners_name} onChange={handleChange} required />
-      <input type="text" name="owners_rg" placeholder="RG" value={tutor.owners_rg} onChange={handleChange} required />
-      <input type="tel" name="owners_contact" placeholder="Contato" value={tutor.owners_contact} onChange={handleChange} required />
-      <input type="text" name="owners_adress" placeholder="Endereço" value={tutor.owners_adress} onChange={handleChange} required />
-      <button type="submit">Cadastrar Tutor</button>
-      {message && <p>{message}</p>}
+    <form onSubmit={handleSubmit} className="space-y-3 p-4 bg-white shadow-md rounded-lg max-w-md mx-auto">
+      <h2 className="text-xl font-bold text-center">Cadastrar Tutor</h2>
+
+      <input
+        type="text"
+        name="owners_cpf"
+        placeholder="CPF"
+        value={tutor.owners_cpf}
+        onChange={handleChange}
+        required
+        className="input-field"
+      />
+      <input
+        type="text"
+        name="owners_name"
+        placeholder="Nome"
+        value={tutor.owners_name}
+        onChange={handleChange}
+        required
+        className="input-field"
+      />
+      <input
+        type="text"
+        name="owners_rg"
+        placeholder="RG"
+        value={tutor.owners_rg}
+        onChange={handleChange}
+        required
+        className="input-field"
+      />
+      <input
+        type="tel"
+        name="owners_contact"
+        placeholder="Contato"
+        value={tutor.owners_contact}
+        onChange={handleChange}
+        required
+        className="input-field"
+      />
+      <input
+        type="text"
+        name="owners_adress"
+        placeholder="Endereço"
+        value={tutor.owners_adress}
+        onChange={handleChange}
+        required
+        className="input-field"
+      />
+      
+      <button type="submit" className="w-full bg-blue-500 text-white font-bold py-1.5 rounded-md">
+        Cadastrar Tutor
+      </button>
+
+      {message && <p className="text-center mt-3 font-semibold">{message}</p>}
     </form>
   );
 };

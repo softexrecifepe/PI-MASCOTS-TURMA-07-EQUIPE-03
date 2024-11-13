@@ -3,8 +3,7 @@
 import PetForm from "./PetForm";
 
 const CadastrarPet = () => (
-  <div>
-    <h1>Cadastro de Pet</h1>
+  <div className="pt-6">
     <PetForm />
   </div>
 );
