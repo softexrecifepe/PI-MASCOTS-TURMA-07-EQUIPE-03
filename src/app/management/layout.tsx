@@ -26,7 +26,7 @@ const ManagementLayout: React.FC<ManagementLayoutProps> = ({ children }) => {
       name: "Internamento",
       href: "#",
       sublinks: [
-        { name: "Internar novo animal", href: "/management/#" },
+        { name: "Internar novo animal", href: "/management/internamento" },
         { name: "Novo tratamento", href: "/management/#" },
         { name: "Iniciar novo monitoramento", href: "/management/#" },
       ],
