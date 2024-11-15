@@ -15,7 +15,7 @@ export const Management: React.FC = () => {
     },
     {
       name: "Animais internados",
-      href: "#",
+      href: "/management/hospitalizationsList",
       bgColor: "bg-red-600",
       textColor: "text-white",
     },

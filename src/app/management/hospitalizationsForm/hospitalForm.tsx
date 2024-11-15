@@ -1,9 +1,8 @@
-// src/pages/registerHospitalization.tsx
 "use client";
 import { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 
-interface HospitalizationData {
+export interface HospitalizationData {
   cage_number: string;
   reason: string;
   entry_date: string;
@@ -19,6 +18,15 @@ interface HospitalizationData {
   consultation_id: number;
   veterinarian_CPF: string;
 }
+
+export const getHospitalizations = (): HospitalizationData[] => {
+  if (typeof window === "undefined") {
+    return []; // Garante que não tente acessar localStorage no servidor
+  }
+
+  const savedHospitalizations = localStorage.getItem("hospitalizations");
+  return savedHospitalizations ? JSON.parse(savedHospitalizations) : [];
+};
 
 const RegisterHospitalization = () => {
   const [hospitalizations, setHospitalizations] = useState<HospitalizationData[]>([]);
@@ -39,6 +47,12 @@ const RegisterHospitalization = () => {
     consultation_id: 1,
     veterinarian_CPF: "98765432100",
   });
+
+  // Busca os dados das internações do localStorage
+  useEffect(() => {
+    const savedHospitalizations = getHospitalizations();
+    setHospitalizations(savedHospitalizations);
+  }, []);
 
   // Carregar internações do localStorage na primeira renderização
   useEffect(() => {
