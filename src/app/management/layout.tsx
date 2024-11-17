@@ -42,11 +42,11 @@ const ManagementLayout: React.FC<ManagementLayoutProps> = ({ children }) => {
       <div className="flex h-screen overflow-hidden">
         <div className="flex flex-col w-[20%] ms-2 px-2">
           <div className="flex my-2 w-full  ">
-            <Button label={"Agendar consulta"}>
+            {/* <Button label={"Agendar consulta"}>
               <div className="w-11 px-1">
                 <Image src={plusIcon} alt={"Ícone de mais"} sizes="100%" />
               </div>
-            </Button>
+            </Button> */}
           </div>
           <Sidebar links={linksSidebar} />
         </div>
