@@ -14,6 +14,7 @@ const HospitalizationList = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
+      
       <h1 className="text-2xl font-bold mb-4">Lista de Internações</h1>
       {hospitalizations.length === 0 ? (
         <p className="text-gray-500">Nenhuma internação registrada.</p>
