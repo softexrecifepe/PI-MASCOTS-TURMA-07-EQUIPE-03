@@ -36,31 +36,52 @@ const NavBar: React.FC = () => {
 
       <div className="flex flex-wrap gap-10 items-center text-sm text-neutral-950">
         <motion.div
+          data-layername="infoSection"
+          className="hover:text-teal-700"
+          whileHover={{ scale: 1.2 }}
+        >
+          <Link href="#info-section">Bem-Vindo</Link>
+        </motion.div>
+        <motion.div
+          data-layername="prioritizingSection"
+          className="hover:text-teal-700"
+          whileHover={{ scale: 1.2 }}
+        >
+          <Link href="#prioritizing-section">Nossa Prioridade</Link>
+        </motion.div>
+        <motion.div
+          data-layername="contactSection"
+          className="hover:text-teal-700"
+          whileHover={{ scale: 1.2 }}
+        >
+          <Link href="#contact-section">Contato</Link>
+        </motion.div>
+        <motion.div
           data-layername="consulta"
-          className="hover:text-indigo-600"
+          className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
           <Link href="/consulta">Consulta</Link>
         </motion.div>
         <motion.div
           data-layername="petShop"
-          className="hover:text-indigo-600"
+          className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
-          Pet Shop
+          <Link href="/pet-shop">Pet Shop</Link>
         </motion.div>
         <motion.div
           data-layername="ofertas"
-          className="hover:text-indigo-600"
+          className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
-          Ofertas
+          <Link href="/ofertas">Ofertas</Link>
         </motion.div>
       </div>
 
       <motion.button
         data-layername="buttons"
-        className="px-6 py-3 bg-indigo-500 text-white rounded-[48px] hover:bg-indigo-600 transition-transform duration-300"
+        className="px-6 py-3 bg-teal-500 text-white rounded-[48px] hover:bg-teal-700 transition-transform duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

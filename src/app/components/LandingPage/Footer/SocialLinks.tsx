@@ -27,7 +27,7 @@ const SocialLinks: React.FC = () => {
         </div>
       </div>
       <div className="mt-2 text-xs font-light text-neutral-950">
-        Contato: <span className="text-blue-600 hover:underline">hi.mascot@mascots.com</span>
+        Contato: <span className="text-teal-600 hover:underline">hi.mascot@mascots.com</span>
       </div>
     </div>
   );

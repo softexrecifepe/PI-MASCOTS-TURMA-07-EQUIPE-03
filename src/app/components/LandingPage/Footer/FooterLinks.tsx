@@ -9,13 +9,13 @@ const FooterLinks: React.FC = () => {
       <h3 data-layername="mascots" className="text-base font-semibold">MASCOT'S</h3>
       <ul className="flex flex-col mt-2 text-xs font-light">
         {links.map((link, index) => (
-          <li key={index} data-layername={link.toLowerCase()} className="mt-1 transition-colors duration-200 hover:text-blue-600">
+          <li key={index} data-layername={link.toLowerCase()} className="mt-1 transition-colors duration-200 hover:text-teal-600">
             <Link href={`/${link.toLowerCase()}`} className="hover:underline">
               {link}
             </Link>
           </li>
         ))}
-        <li className="mt-1 transition-colors duration-200 hover:text-blue-600">
+        <li className="mt-1 transition-colors duration-200 hover:text-teal-600">
           <Link href="../../Login" className="hover:underline">Gerenciamento</Link>
         </li>
       </ul>
