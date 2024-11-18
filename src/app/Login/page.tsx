@@ -16,7 +16,11 @@ const Login: React.FC = () => {
     }
     console.log("Formulário enviado", { email, password });
     setErrorMessage("");
-    window.location.href = "/management";
+    if (email === "usuario@usuario" || password === "senha") {
+      
+      window.location.href = "/management";
+      return;
+    }
   };
 
   return (
