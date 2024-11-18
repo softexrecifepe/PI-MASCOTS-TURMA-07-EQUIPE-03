@@ -16,7 +16,7 @@ const FooterLinks: React.FC = () => {
           </li>
         ))}
         <li className="mt-1 transition-colors duration-200 hover:text-blue-600">
-          <Link href="../../management" className="hover:underline">Gerenciamento</Link>
+          <Link href="../../Login" className="hover:underline">Gerenciamento</Link>
         </li>
       </ul>
     </div>
