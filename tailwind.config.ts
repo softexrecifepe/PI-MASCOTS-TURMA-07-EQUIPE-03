@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#4CAF50", // Verde principal (ex: para botões e destaque)
+        primary: "#FFFFFF", // Verde principal (ex: para botões e destaque)
         secondary: "#FFC107", // Amarelo secundário (ex: para ícones ou alertas)
         tertiary: "#2195E8", // Azul terciário (ex: para links ou textos informativos)
         accent: "#FF5722", // Cor de destaque 1 (ex: botões de alerta)

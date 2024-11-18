@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const NavBar: React.FC = () => {
@@ -16,6 +15,13 @@ const NavBar: React.FC = () => {
     };
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.nav
       data-layername="navBar"
@@ -31,51 +37,55 @@ const NavBar: React.FC = () => {
         className="text-lg font-bold leading-none text-neutral-950"
         whileHover={{ scale: 1.05 }}
       >
-        MASCOT'S
+        MASCOT&apos;S
       </motion.div>
 
       <div className="flex flex-wrap gap-10 items-center text-sm text-neutral-950">
         <motion.div
           data-layername="infoSection"
-          className="hover:text-teal-700"
+          className="hover:text-teal-700 cursor-pointer"
           whileHover={{ scale: 1.2 }}
+          onClick={() => scrollToSection('#info-section')}
         >
-          <Link href="#info-section">Bem-Vindo</Link>
+          Bem-Vindo
         </motion.div>
         <motion.div
           data-layername="prioritizingSection"
-          className="hover:text-teal-700"
+          className="hover:text-teal-700 cursor-pointer"
           whileHover={{ scale: 1.2 }}
+          onClick={() => scrollToSection('#prioritizing-section')}
         >
-          <Link href="#prioritizing-section">Nossa Prioridade</Link>
+          Nossa Prioridade
         </motion.div>
         <motion.div
           data-layername="contactSection"
-          className="hover:text-teal-700"
+          className="hover:text-teal-700 cursor-pointer"
           whileHover={{ scale: 1.2 }}
+          onClick={() => scrollToSection('#contact-section')}
         >
-          <Link href="#contact-section">Contato</Link>
+          Contato
         </motion.div>
+        {/* Links que levam para outras páginas permanecem normais */}
         <motion.div
           data-layername="consulta"
           className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
-          <Link href="/consulta">Consulta</Link>
+          <a href="/consulta">Consulta</a>
         </motion.div>
         <motion.div
           data-layername="petShop"
           className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
-          <Link href="/pet-shop">Pet Shop</Link>
+          <a href="/pet-shop">Pet Shop</a>
         </motion.div>
         <motion.div
           data-layername="ofertas"
           className="hover:text-teal-700"
           whileHover={{ scale: 1.2 }}
         >
-          <Link href="/ofertas">Ofertas</Link>
+          <a href="/ofertas">Ofertas</a>
         </motion.div>
       </div>
 
@@ -84,6 +94,7 @@ const NavBar: React.FC = () => {
         className="px-6 py-3 bg-teal-500 text-white rounded-[48px] hover:bg-teal-700 transition-transform duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        onClick={() => scrollToSection('#appointment-section')}
       >
         Agendar Consulta
       </motion.button>

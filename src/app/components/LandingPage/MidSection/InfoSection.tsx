@@ -18,7 +18,7 @@ const InfoSection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-4xl font-bold text-teal-900 mb-4"
         >
-          Bem-vindo à Mascot's!
+          Bem-vindo à Mascot&apos;s!
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

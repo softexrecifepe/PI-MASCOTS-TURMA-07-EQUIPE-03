@@ -1,9 +1,7 @@
 import React from "react";
-import Input from "./Input";
 import Image from "next/image";
 import PawVet from "../../../public/veterinary_paw.svg";
 import Logo from "../../../public/logo.svg";
-import notification from "../../../public/bell.svg";
 
 const HeaderManagement: React.FC = () => {
   return (
@@ -15,12 +13,6 @@ const HeaderManagement: React.FC = () => {
           <div className="w-32">
             <Image src={Logo} alt="Logo Mascots" sizes="100%" />
           </div>
-        </div>
-        <div className="flex items-center">
-          <div className="w-11 p-1 hover:cursor-pointer">
-            <Image src={notification} alt="Ícone de notificação" sizes="100%" />
-          </div>
-          <Input placeholder={`Pesquise aqui...`} label={""} />
         </div>
       </header>
   );

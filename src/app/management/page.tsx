@@ -36,7 +36,7 @@ export const Management: React.FC = () => {
   ];
 
   return (
-    <div className="flex h-full">
+    <div className="flex to-teal-200 h-full">
       <div className="flex flex-col w-full p-2 me-2 pe-2 gap-2 overflow-y-auto">
         <Cards links={linksCards} />
         <div className="w-full h-full bg-accentThree rounded-md flex gap-2 p-4">

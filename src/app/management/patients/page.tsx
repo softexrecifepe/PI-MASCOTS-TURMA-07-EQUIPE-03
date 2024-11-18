@@ -61,7 +61,7 @@ const Pets: React.FC = () => {
               <motion.div
                 key={animal.pet_id}
                 layoutId={`card-${animal.pet_id}`}
-                className="bg-white border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg"
+                className="bg-primary border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg"
                 onClick={() => setSelectedId(animal.pet_id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -86,7 +86,7 @@ const Pets: React.FC = () => {
                   exit={{ opacity: 0 }}
                 >
                   <motion.div
-                    className="bg-white rounded-lg p-6 max-w-md w-full"
+                    className="bg-primary rounded-lg p-6 max-w-md w-full"
                     onClick={(e) => e.stopPropagation()}
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
