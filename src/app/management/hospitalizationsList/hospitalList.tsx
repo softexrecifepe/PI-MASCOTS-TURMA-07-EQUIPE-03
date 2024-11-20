@@ -70,14 +70,14 @@ const HospitalizationList = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4 rounded-lg">
+    <div className="flex flex-col items-center min-h-screen p-4 rounded-lg">
       
       <h1 className="text-2xl font-bold mb-4">Lista de Internações</h1>
       {loading ? ( // Exibe o indicador de carregamento
         <div className="flex justify-center items-center h-64">
           <span className="text-lg font-semibold">Carregando...</span>
         </div>) : (
-        <table className="table-auto border-collapse border border-gray-300 ">
+        <table className="table-auto border-collapse border border-gray-300 shadow-xl">
           <thead className="rounded-lg">
             <tr className="bg-gray-200">
             <th className="border border-gray-300 px-4 py-2">Gaiola</th>
