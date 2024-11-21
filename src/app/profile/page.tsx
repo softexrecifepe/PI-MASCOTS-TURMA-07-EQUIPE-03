@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-// import defaultProfilePic from "../../../public/defaultProfilePic.svg"; // Adicione uma imagem padrão para o perfil
+import defaultProfilePic from "../../../public/pet-gless.jpg"; // Adicione uma imagem padrão para o perfil
 
 interface UserProfile {
   name: string;
   email: string;
   phone: string;
   role: string;
-  profilePic: string;
+  profilePic: any;
 }
 
 const Profile: React.FC = () => {
@@ -21,7 +21,7 @@ const Profile: React.FC = () => {
     email: "ana.silva@clinica.com",
     phone: "(11) 98765-4321",
     role: "Veterinário",
-    profilePic: "/public/pet-gless.jpg", // Pode ser alterado por uma imagem de perfil real
+    profilePic: defaultProfilePic, // Pode ser alterado por uma imagem de perfil real
   });
 
   // Função para editar as informações
