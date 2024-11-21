@@ -118,26 +118,23 @@ const HospitalizationList = () => {
                 
               </motion.tr>
               <AnimatePresence>
-                  {expandedPetId === item.pet_id && (
-                    <motion.div
-                      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50`}
-                      onClick={() => setExpandedPetId(null)}
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{
-                      // height: "auto",
-                      
+                {expandedPetId === item.pet_id && (
+                  <motion.div
+                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                    onClick={() => setExpandedPetId(null)}
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{
                       opacity: 1,
                       transition: { duration: 0.5, ease: "easeInOut" },
-                      }}
-                      exit={{
-                      // height: 0,
+                    }}
+                    exit={{
                       opacity: 0,
                       transition: { duration: 0.6, ease: "easeInOut" },
-                      }}>
-                      <motion.td 
-                      colSpan={6} 
-                      className="border bg-gray-300 p-4 rounded max-w-xl w-full"
+                    }}
+                  >
+                    <motion.div
+                      className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-3xl text-gray-800 relative"
                       onClick={(e) => e.stopPropagation()}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{
@@ -150,30 +147,26 @@ const HospitalizationList = () => {
                         scale: 0.95,
                         transition: { duration: 0.5, ease: "easeInOut" },
                       }}
-                      >
-                        <motion.div className="text-sm w-[100%]">
-                          <p><strong>Gaiola:</strong> {item.cage_number}</p>
-                          <p><strong>Pet:</strong> {item.pet_name}</p>
-                          <p><strong>Razão da internação:</strong> {item.reason}</p>
-                          <p><strong>Observações:</strong> {item.hospitalization_observations}</p>
-                          <p><strong>Exames Solicitados:</strong> {item.requested_exams}</p>
-                          <p><strong>Resultados dos Exames:</strong> {item.results_exams}</p>
-                          <p><strong>Nome do Tutor:</strong> {item.owners_name}</p>
-                          <p><strong>Contato do Tutor:</strong> {item.owners_contact}</p>
-                        </motion.div>
-                        <motion.button
-                        className="mt-4 w-full p-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    >
+                      <div className="space-y-4">
+                        <p className="font-semibold"><strong>Gaiola:</strong> {item.cage_number}</p>
+                        <p className="font-semibold"><strong>Pet:</strong> {item.pet_name}</p>
+                        <p><strong>Razão da internação:</strong> {item.reason}</p>
+                        <p><strong>Observações:</strong> {item.hospitalization_observations}</p>
+                        <p><strong>Exames Solicitados:</strong> {item.requested_exams}</p>
+                        <p><strong>Resultados dos Exames:</strong> {item.results_exams}</p>
+                        <p><strong>Nome do Tutor:</strong> {item.owners_name}</p>
+                        <p><strong>Contato do Tutor:</strong> {item.owners_contact}</p>
+                      </div>
+                      <button
+                        className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
                         onClick={() => setExpandedPetId(null)}
-                        // initial={{ opacity: 0 }}
-                        // animate={{ opacity: 1 }}
-                        // exit={{ opacity: 0 }}
                       >
-                        Fechar
-                      </motion.button>
-                      </motion.td>
+                        ✕
+                      </button>
                     </motion.div>
-                  )}
-
+                  </motion.div>
+                )}
               </AnimatePresence>
             </>
             ))}

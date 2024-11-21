@@ -33,41 +33,39 @@ const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-64 bg-gray-100 p-4 shadow-lg rounded-md"
+      className="w-64 bg-teal-700 p-5 text-white shadow-lg rounded-lg"
     >
       <ul>
         {links.map((link, index) => (
           <React.Fragment key={index}>
             <motion.li
-              className="flex items-center justify-start ps-2 rounded-md transition duration-200 hover:bg-gray-300 hover:shadow-md hover:text-gray-900"
+              className="flex items-center justify-between py-3 px-4 mb-2 rounded-lg bg-teal-600 hover:bg-teal-500 shadow-md transition duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
-              {link.icon && (
-                <Image
-                  src={link.icon}
-                  alt={`${link.name} Icon`}
-                  width={20}
-                  height={20}
-                  className="mr-2"
-                />
-              )}
-              <Link
-                onClick={() => {
-                  if (onClickLink) {
-                    onClickLink(link);
-                  }
-                }}
-                href={link.href}
-                className="p-2 rounded block"
-              >
-                {link.name}
-              </Link>
+              <div className="flex items-center">
+                {link.icon && (
+                  <Image
+                    src={link.icon}
+                    alt={`${link.name} Icon`}
+                    width={24}
+                    height={24}
+                    className="mr-3"
+                  />
+                )}
+                <Link
+                  href={link.href}
+                  onClick={() => onClickLink && onClickLink(link)}
+                  className="text-white font-medium hover:underline"
+                >
+                  {link.name}
+                </Link>
+              </div>
               {link.sublinks && (
                 <button
                   onClick={() => toggleDropdown(link.name)}
-                  className="ml-2 text-gray-400 hover:shadow-md hover:bg-gray-300 hover:text-gray-900"
+                  className="text-white hover:text-gray-200"
                 >
                   {openDropdowns[link.name] ? "▲" : "▼"}
                 </button>
@@ -76,7 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
             <AnimatePresence>
               {link.sublinks && openDropdowns[link.name] && (
                 <motion.div
-                  className="ml-4 flex flex-col space-y-1"
+                  className="ml-6 flex flex-col space-y-1"
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
@@ -91,7 +89,7 @@ const Sidebar: React.FC<SidebarProps> = ({ links, onClickLink }) => {
                     >
                       <Link
                         href={sublink.href}
-                        className="text-gray-600 hover:bg-gray-300 hover:shadow-md hover:text-gray-900 transition duration-300"
+                        className="block py-2 px-4 text-gray-200 hover:bg-teal-500 hover:text-white rounded-md transition duration-300"
                       >
                         {sublink.name}
                       </Link>

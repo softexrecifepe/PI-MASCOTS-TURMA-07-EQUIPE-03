@@ -43,7 +43,7 @@ const PetForm = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -30 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto p-4 bg-white shadow-md rounded-lg max-w-md"
+      className="container mx-auto p-4 bg-white shadow-2xl rounded-lg max-w-md"
     >
       <motion.form
         onSubmit={handleSubmit}
@@ -87,7 +87,7 @@ const PetForm = () => {
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full bg-blue-500 text-white font-bold py-1.5 rounded-md mt-3"
+          className="w-full bg-teal-500 text-white font-bold py-1.5 rounded-md mt-3"
         >
           Cadastrar Pet
         </motion.button>

@@ -29,7 +29,7 @@ const TutorForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 p-4 bg-white shadow-md rounded-lg max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-3 p-4 bg-white drop-shadow-2xl shadow-md rounded-lg max-w-md mx-auto">
       <h2 className="text-xl font-bold text-center">Cadastrar Tutor</h2>
 
       <input
@@ -78,7 +78,7 @@ const TutorForm = () => {
         className="input-field"
       />
       
-      <button type="submit" className="w-full bg-blue-500 text-white font-bold py-1.5 rounded-md">
+      <button type="submit" className="w-full bg-teal-500 text-white font-bold py-1.5 rounded-md">
         Cadastrar Tutor
       </button>
 
