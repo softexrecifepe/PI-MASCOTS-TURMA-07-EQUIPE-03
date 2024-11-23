@@ -3,7 +3,7 @@ import { getAnimals } from "../../../../get-animals";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface Animal {
+export interface Animal {
   pet_id: number;
   pet_name: string;
   age: string;

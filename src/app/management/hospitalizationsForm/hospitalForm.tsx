@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { postAnimalsHospital } from "../../../../get-animals";
+import { getAnimals, postAnimalsHospital } from "../../../../get-animals";
+import { Animal } from "../patients/page";
 // import { useRouter } from "next/router";
 
 export interface HospitalizationData {
@@ -25,70 +26,71 @@ export interface HospitalizationData {
   hospitalization_id: number; //11
 }
 
-export interface Animal {
-  id: number;
-  name: string;
-  owner_name: string;
-}
+// interface Animal {
+//   id: number;
+//   name: string;
+//   owner_name: string;
+// }
 
-export const getAnimals = (): Animal[] => {
-  if (typeof window === "undefined") {
-    return [];
-  }
-  const savedAnimals = localStorage.getItem("animals");
-  return savedAnimals ? JSON.parse(savedAnimals) : [];
-};
+//Busca animais do LocalStorage
+// export const getAnimalsLocal = (): Animal[] => {
+//   if (typeof window === "undefined") {
+//     return [];
+//   }
+//   const savedAnimals = localStorage.getItem("animals");
+//   return savedAnimals ? JSON.parse(savedAnimals) : [];
+// };
 
-export const getHospitalizations = (): HospitalizationData[] => {
-  if (typeof window === "undefined") {
-    return []; // Garante que não tente acessar localStorage no servidor
-  }
+// export const getHospitalizations = (): HospitalizationData[] => {
+//   if (typeof window === "undefined") {
+//     return []; // Garante que não tente acessar localStorage no servidor
+//   }
 
-  const savedHospitalizations = localStorage.getItem("hospitalizations");
-  return savedHospitalizations ? JSON.parse(savedHospitalizations) : [];
-};
+//   const savedHospitalizations = localStorage.getItem("hospitalizations");
+//   return savedHospitalizations ? JSON.parse(savedHospitalizations) : [];
+// };
 
 const RegisterHospitalization = () => {
   const [message, setMessage] = useState("");
   const [hospitalizations, setHospitalizations] = useState<HospitalizationData[]>([]);
   const [animals, setAnimals] = useState<Animal[]>([]);
   const [formData, setFormData] = useState<HospitalizationData>({
-    cage_number: "01",
-    reason: "Tratamento para cistite aguda.",
-    entry_date: "2024-10-11T00:00:00.000Z",
-    requested_exams: "Hemograma completo e ultrassom pélvica",
-    results_exams: "drive.google.com/drive",
-    hospitalization_observations: "Retirar a sonda apenas após reavaliação médica.",
-    pet_id: 1,
-    pet_name: "Toinha",
-    owners_name: "Sabrina Mathias",
-    owners_contact: "81988278783",
-    consultation_id: 1,
-    veterinarian_cpf: "12398745642",
+    cage_number: "", //Número da gaiola
+    reason: "", //Tratamento para cistite aguda.
+    entry_date: "", //2024-10-11T00:00:00.000Z
+    requested_exams: "",// ex: Hemograma completo e ultrassom pélvica
+    results_exams: "", // ex:drive.google.com/drive
+    hospitalization_observations: "", // ex: Retirar a sonda apenas após reavaliação médica.
+    pet_id: 0,
+    pet_name: "", // ex: Toinha
+    owners_name: "", //Sabrina Mathias
+    owners_contact: "", //81988278783
+    consultation_id: 0, //ex: 1
+    veterinarian_cpf: "", //12398745642
     discharge_date: null,
     discharge_time: null,
     death: false,
     time_death: null,
     date_death: null,
-    hospitalization_id: 11,
+    hospitalization_id: 0, // ex: 11
   });
 
   // Busca os dados das internações do localStorage
-  useEffect(() => {
-    const savedHospitalizations = getHospitalizations();
-    setHospitalizations(savedHospitalizations);
+  // useEffect(() => {
+  //   const savedHospitalizations = getHospitalizations();
+  //   setHospitalizations(savedHospitalizations);
 
-    const savedAnimals = getAnimals();
-    setAnimals(savedAnimals);
-  }, []);
+  //   const savedAnimals = getAnimalsLocal();
+  //   setAnimals(savedAnimals);
+  // }, []);
 
   // Carregar internações do localStorage na primeira renderização
-  useEffect(() => {
-    const savedHospitalizations = localStorage.getItem("hospitalizations");
-    if (savedHospitalizations) {
-      setHospitalizations(JSON.parse(savedHospitalizations));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedHospitalizations = localStorage.getItem("hospitalizations");
+  //   if (savedHospitalizations) {
+  //     setHospitalizations(JSON.parse(savedHospitalizations));
+  //   }
+  // }, []);
 
   // Atualizar o localStorage quando a lista de internações mudar
   useEffect(() => {
@@ -96,6 +98,22 @@ const RegisterHospitalization = () => {
     console.log(hospitalizations);
     
   }, [hospitalizations]);
+
+  //Busca aniams da lista de cadastro da API
+
+  // Carregar animais da API na primeira renderização
+  useEffect(() => {
+    const fetchAnimals = async () => {
+      try {
+        const fetchedAnimals = await getAnimals();
+        setAnimals(fetchedAnimals);        
+      } catch (error) {
+        console.error("Erro ao buscar animais da API:", error);
+      }
+
+    };
+    fetchAnimals();
+  }, []);
 
   //   const router = useRouter();
 
@@ -111,13 +129,15 @@ const RegisterHospitalization = () => {
 
   const handleAnimalSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedAnimalId = parseInt(e.target.value);
-    const selectedAnimal = animals.find((animal) => animal.id === selectedAnimalId);
+    const selectedAnimal = animals.find((animal) => animal.pet_id === selectedAnimalId);
+    console.log(selectedAnimal);
+
     if (selectedAnimal) {
       setFormData({
         ...formData,
-        pet_id: selectedAnimal.id,
-        pet_name: selectedAnimal.name,
-        owners_name: selectedAnimal.owner_name,
+        pet_id: selectedAnimal.pet_id,
+        pet_name: selectedAnimal.pet_name,
+        owners_name: selectedAnimal.owners_cpf,
       });
     }
   };
@@ -140,7 +160,7 @@ const RegisterHospitalization = () => {
       requested_exams: "",
       results_exams: "",
       hospitalization_observations: "",
-      pet_id: 1,
+      pet_id: 0,
       pet_name: "",
       owners_name: "",
       owners_contact: "",
@@ -169,7 +189,7 @@ const RegisterHospitalization = () => {
         requested_exams: "",
         results_exams: "",
         hospitalization_observations: "",
-        pet_id: 1,
+        pet_id: 0,
         pet_name: "",
         owners_name: "",
         owners_contact: "",
@@ -330,8 +350,8 @@ const RegisterHospitalization = () => {
           >
             <option value="">Selecione um animal</option>
             {animals.map((animal) => (
-              <option key={animal.id} value={animal.id}>
-                {animal.name} (Proprietário: {animal.owner_name})
+              <option key={animal.pet_id} value={animal.pet_id}>
+                {animal.pet_name} | ( Proprietário: {animal.owners_cpf})
               </option>
             ))}
           </motion.select>
@@ -412,7 +432,7 @@ const RegisterHospitalization = () => {
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full bg-blue-500 text-white font-bold py-2 rounded-md"
+          className="w-full bg-teal-500 text-white font-bold py-2 rounded-md"
         >
           Registrar Internação
         </motion.button>
