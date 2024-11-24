@@ -65,13 +65,13 @@ Este é um sistema de gerenciamento para uma clínica veterinária. Ele inclui f
 
 ## 🔄 Exemplos de Fluxos de Interação do Usuário
 
-### Fluxo 1: Cadastro de Tutor e Pet
+### Fluxo 1: Cadastro de Pet e Visualização
 
-1. O usuário acessa a página de cadastro de tutor pela sidebar na página de gerenciamento.
-2. Preenche os campos com informações do tutor e clica em **Cadastrar**.
-3. Após o cadastro, é redirecionado para o formulário de cadastro de pets.
-4. Preenche as informações do pet e clica em **Cadastrar**.
-5. Uma mensagem de confirmação aparece, e o pet está associado ao tutor.
+1. Começando na Landing Page, é possível descer até o Footer e clicar em Gerenciamento.
+2. Após isso, abrirá a tela de login para realizar a autenticação, após isso, será redirecionado para a tela de Gerenciamento da clínica.
+3. O usuário pode acessar a página de cadastro de pet pela sidebar na página de gerenciamento.
+4. Preenche os campos com informações do pet e clica em **Cadastrar**.
+5. Após o cadastro, é possível voltar na tela home e acessar a página de visualização de Animais.
 
 ### Fluxo 2: Internação e Alta de Pacientes
 
