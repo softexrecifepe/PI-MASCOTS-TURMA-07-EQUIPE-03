@@ -1,0 +1,103 @@
+[
+    {
+      "item_id": 1,
+      "name": "Seringa 5ml",
+      "category": "Equipamento Médico",
+      "quantity": 150,
+      "unit": "unidades",
+      "supplier": "MedVet Supplies",
+      "reorder_level": 50,
+      "price_per_unit": 0.75
+    },
+    {
+      "item_id": 2,
+      "name": "Agulha 21G",
+      "category": "Equipamento Médico",
+      "quantity": 300,
+      "unit": "unidades",
+      "supplier": "HealthTools Distribuidora",
+      "reorder_level": 100,
+      "price_per_unit": 0.10
+    },
+    {
+      "item_id": 3,
+      "name": "Solução de Ringer Lactato 500ml",
+      "category": "Medicamento",
+      "quantity": 50,
+      "unit": "frascos",
+      "supplier": "PharmaVet",
+      "reorder_level": 20,
+      "price_per_unit": 4.25
+    },
+    {
+      "item_id": 4,
+      "name": "Esparadrapo 5cm x 4,5m",
+      "category": "Curativos",
+      "quantity": 75,
+      "unit": "rolos",
+      "supplier": "VetCare Distribuidora",
+      "reorder_level": 30,
+      "price_per_unit": 1.20
+    },
+    {
+      "item_id": 5,
+      "name": "Luvas de Procedimento (Tamanho M)",
+      "category": "Equipamento de Proteção Individual",
+      "quantity": 200,
+      "unit": "caixas",
+      "supplier": "Safety First",
+      "reorder_level": 50,
+      "price_per_unit": 5.50
+    },
+    {
+      "item_id": 6,
+      "name": "Clorexidina 2% (1L)",
+      "category": "Antisséptico",
+      "quantity": 40,
+      "unit": "frascos",
+      "supplier": "VetClean Produtos",
+      "reorder_level": 15,
+      "price_per_unit": 7.80
+    },
+    {
+      "item_id": 7,
+      "name": "Termômetro Digital Veterinário",
+      "category": "Equipamento Médico",
+      "quantity": 20,
+      "unit": "unidades",
+      "supplier": "PrecisionVet",
+      "reorder_level": 5,
+      "price_per_unit": 12.50
+    },
+    {
+      "item_id": 8,
+      "name": "Fita de Glicose",
+      "category": "Diagnóstico",
+      "quantity": 100,
+      "unit": "pacotes",
+      "supplier": "HealthCheck Supplies",
+      "reorder_level": 25,
+      "price_per_unit": 3.75
+    },
+    {
+      "item_id": 9,
+      "name": "Máscara Cirúrgica",
+      "category": "Equipamento de Proteção Individual",
+      "quantity": 500,
+      "unit": "caixas",
+      "supplier": "MedEquip",
+      "reorder_level": 100,
+      "price_per_unit": 8.00
+    },
+    {
+      "item_id": 10,
+      "name": "Sutura Nylon 3-0",
+      "category": "Materiais Cirúrgicos",
+      "quantity": 80,
+      "unit": "carretéis",
+      "supplier": "SurgiVet",
+      "reorder_level": 20,
+      "price_per_unit": 2.30
+    }
+  ]
+  
