@@ -9,9 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "pi-mascots-turma-07-equipe-03": "file:",
+=======
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^11.11.11",
+    "next": "14.2.14",
+>>>>>>> develop
     "react": "^18",
-    "react-dom": "^18"
+    "react-calendar": "^5.1.0",
+    "react-dom": "^18",
+    "react-icons": "^5.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",

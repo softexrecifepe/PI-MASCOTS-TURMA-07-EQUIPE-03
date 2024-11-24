@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import MidSection from './components/MidSection/MidSection';
-import Footer from './components/Footer/Footer';
+import Header from './components/LandingPage/Header/Header';
+import MidSection from './components/LandingPage/MidSection/MidSection';
+import Footer from './components/LandingPage/Footer/Footer';
 
 const HomePage: React.FC = () => {
   return (
     <div data-layername="homepage" className="flex overflow-hidden flex-col bg-white">
-      <Header
-        title="Garantindo que seus animais de estimação tenham uma vida melhor"       
-      />
+      <Header />
       <MidSection />
       <Footer />
     </div>
@@ -16,3 +14,4 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
