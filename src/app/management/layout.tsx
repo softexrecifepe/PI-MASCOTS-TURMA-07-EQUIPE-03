@@ -30,7 +30,7 @@ const ManagementLayout: React.FC<ManagementLayoutProps> = ({ children }) => {
     },
     { icon: "/file.svg", name: "Exames", href: "#" },
     { icon: "/calendar.svg", name: "Agenda", href: "#" },
-    { icon: "/box.svg", name: "Inventário", href: "#" },
+    { icon: "/box.svg", name: "Inventário", href: "/management/inventory" },
   ];
 
   return (
