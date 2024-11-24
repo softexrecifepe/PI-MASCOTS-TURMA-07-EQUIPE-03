@@ -1,36 +1,191 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐾 Sistema de Gerenciamento Veterinário
 
-## Getting Started
+Este é um sistema de gerenciamento para uma clínica veterinária. Ele inclui funcionalidades para a equipe da clínica (veterinários, auxiliares e administradores) e também uma landing page para apresentar informações sobre a clínica. A aplicação foi desenvolvida com os ensinamentos do curso de Front-End React da Softex Pernambuco.
 
-First, run the development server:
+## 📋 Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Landing Page:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  - Apresentação da clínica e seus serviços.
+  - Seção de contato.
+  - Informações detalhadas sobre os benefícios e diferenciais da clínica.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Sistema de Gerenciamento:**
+  - **Cadastro e gerenciamento:**
+    - Pacientes (animais).
+    - Tutores.
+    - Estoque de produtos e medicamentos.
+  - **Atendimento:**
+    - Agendamento de consultas.
+    - Internação e administração de medicamentos.
+    - Alta de pacientes internados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Tecnologias Utilizadas
 
-## Learn More
+- **Front-end:**
 
-To learn more about Next.js, take a look at the following resources:
+  - React.js
+  - TypeScript
+  - TailwindCSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Gerenciamento de estado e ferramentas adicionais:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - Context API
+  - Axios para chamadas à API
+  - Biblioteca UUID para gerar identificadores únicos
 
-## Deploy on Vercel
+## 📄 Utilização de API's
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Rota: Cadastro de Tutor
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Endpoint:** `POST https://pi-t1-gp2-clinica.onrender.com/pet-owners`
+- **Campos obrigatórios:**
+  - `owners_cpf`: CPF do tutor.
+  - `owners_name`: Nome do tutor.
+  - `owners_rg`: RG do tutor.
+  - `owners_contact`: Contato do tutor.
+  - `owners_adress`: Endereço do tutor.
+
+### Rota: Cadastro de Animal
+
+- **Endpoint:** `POST https://pi-t1-gp2-clinica.onrender.com/pets`
+- **Campos obrigatórios:**
+  - `pet_name`: Nome do animal.
+  - `microchip_code`: Código do microchip.
+  - `behavior`: Comportamento do animal.
+  - `species`: Espécie do animal.
+  - `gender`: Gênero do animal.
+  - `age`: Idade do animal.
+  - `breed`: Raça do animal.
+  - `weight`: Peso do animal.
+  - `physical_characteristics`: Características físicas.
+  - `allergies`: Alergias do animal.
+  - `diseases`: Doenças pré-existentes.
+  - `owners_cpf`: CPF do tutor associado.
+
+## 🔄 Exemplos de Fluxos de Interação do Usuário
+
+### Fluxo 1: Cadastro de Tutor e Pet
+
+1. O usuário acessa a página de cadastro de tutor pela sidebar na página de gerenciamento.
+2. Preenche os campos com informações do tutor e clica em **Cadastrar**.
+3. Após o cadastro, é redirecionado para o formulário de cadastro de pets.
+4. Preenche as informações do pet e clica em **Cadastrar**.
+5. Uma mensagem de confirmação aparece, e o pet está associado ao tutor.
+
+### Fluxo 2: Internação e Alta de Pacientes
+
+1. Na página de gerenciamento, o usuário acessa a seção **Internações**.
+2. Seleciona um paciente já cadastrado e preenche o formulário de internação, incluindo:
+   - Diagnóstico inicial.
+   - Medicamentos a serem administrados.
+3. Após registrar a internação, o paciente aparece na lista de internados.
+4. Quando o paciente recebe alta, o usuário clica em **Dar alta**, preenche os detalhes e confirma a alta.
+
+## 📸 Prints das Telas
+
+### Landing Page
+
+![Landing Page](./public/landing-page.png)
+
+### Tela de Login
+
+![Tela de Login](./public/login.png)
+
+### Página de Gerenciamento
+
+![Gerenciamento](./public/management.png)
+
+---
+
+## 📌 Como rodar o projeto localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/softexrecifepe/PI-MASCOTS-TURMA-07-EQUIPE-03.git
+   ```
+2. Instale as dependências:
+
+   ```bash
+   cd PI-MASCOTS-TURMA-07-EQUIPE-03
+
+   npm i
+   ```
+
+3. Execute o projeto:
+   ```bash
+   npm run dev
+   ```
+
+## Observação
+
+Este é um projeto em desenvolvimento com intuito apenas acadêmico, novas funcionalidades podem ser adicionadas em versões futuras. Sinta-se à vontade para contribuir ou reportar problemas!
+
+## 💻 Equipe de Desenvolvimento
+
+Conheça a equipe responsável por desenvolver o sistema de gestão veterinária:
+
+<table align="center" style="border-collapse: separate; border-spacing: 20px; text-align: center;">
+  <tr>
+    <td style="border: 2px solid #333333; border-radius: 10px; padding: 15px; background-color: #1e1e1e; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+      <a href="https://github.com/DaviLMA" >
+        <img src="https://avatars.githubusercontent.com/u/51352621?s=400&u=53948210227ef75fcd5de7865ae7cdb2c8c169cc&v=4" width="100" alt="Davi Araújo">
+      </a>
+      <br>
+      <sub><b>Davi Araújo</b></sub>
+      <br><br>
+      <a href="https://github.com/DaviLMA">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub link">
+      </a>
+      <br><br>
+      <a href="https://www.linkedin.com/in/davi-araujo/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn link">
+      </a>
+    </td>
+    <td style="border: 2px solid #333333; border-radius: 10px; padding: 15px; background-color: #1e1e1e; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+      <a href="https://github.com/claybrrs" >
+        <img src="https://avatars.githubusercontent.com/u/167620765?v=4" width="100" alt="Claryssa Barros">
+      </a>
+      <br>
+      <sub><b>Claryssa Barros</b></sub>
+      <br><br>
+      <a href="https://github.com/claybrrs">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub link">
+      </a>
+      <br><br>
+      <a href="https://www.linkedin.com/in/claryssa-barros-9b2b3b338/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn link">
+      </a>
+    </td>
+    <td style="border: 2px solid #333333; border-radius: 10px; padding: 15px; background-color: #1e1e1e; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+      <a href="https://github.com/jonas261007" >
+        <img src="https://avatars.githubusercontent.com/u/129200322?v=4" width="100" alt="Jonas">
+      </a>
+      <br>
+      <sub><b>Jonas</b></sub>
+      <br><br>
+      <a href="https://github.com/jonas261007">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub link">
+      </a>
+      <br><br>
+      <a href="#">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn link">
+      </a>
+    </td>
+    <td style="border: 2px solid #333333; border-radius: 10px; padding: 15px; background-color: #1e1e1e; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+      <a href="https://github.com/hudney-fsbrito" >
+        <img src="https://avatars.githubusercontent.com/u/83670739?v=4" width="100" alt="Hudney Brito">
+      </a>
+      <br>
+      <sub><b>Hudney Brito</b></sub>
+      <br><br>
+      <a href="https://github.com/hudney-fsbrito">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub link">
+      </a>
+      <br><br>
+      <a href="https://www.linkedin.com/in/hudneyfernandes-dev/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn link">
+      </a>
+    </td>
+  </tr>
+</table>
