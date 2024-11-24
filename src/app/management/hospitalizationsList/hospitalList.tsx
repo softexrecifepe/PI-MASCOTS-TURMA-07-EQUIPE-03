@@ -5,6 +5,7 @@ import { getAnimalsHospital } from "../../../../get-animals";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { AnimatePresence, motion } from "framer-motion";
+import DischargeAnimal from "./dischargeAnimal";
 
 function formatDate(date:Date) {
    
@@ -66,6 +67,24 @@ const HospitalizationList = () => {
       }
     };
 
+    fetchAnimals();
+  }, []);
+
+  // Função para atualizar a lista de internações
+  const fetchAnimals = async () => {
+    setLoading(true);
+    try {
+      const result = await getAnimalsHospital();
+      setAnimalHospital(result);
+    } catch (error) {
+      console.error("Erro ao atualizar a lista", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Carregar lista de internações ao montar o componente
+  useEffect(() => {
     fetchAnimals();
   }, []);
 
@@ -158,6 +177,11 @@ const HospitalizationList = () => {
                         <p><strong>Nome do Tutor:</strong> {item.owners_name}</p>
                         <p><strong>Contato do Tutor:</strong> {item.owners_contact}</p>
                       </div>
+                      <DischargeAnimal
+                        
+                        hospitalizationId={item.hospitalization_id}
+                        onDischargeSuccess={fetchAnimals} // Atualiza a lista após alta
+                      />
                       <button
                         className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
                         onClick={() => setExpandedPetId(null)}
