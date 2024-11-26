@@ -408,7 +408,7 @@ const RegisterHospitalization = () => {
           <legend className="font-semibold text-base">Informações do Veterinário</legend>
           <motion.input
             type="text"
-            name="veterinarian_CPF"
+            name="veterinarian_cpf"
             placeholder="CPF do Veterinário"
             value={formData.veterinarian_cpf}
             onChange={handleChange}
