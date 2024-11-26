@@ -1,7 +1,7 @@
 import React from 'react';
-import PrioritizingSection from './PrioritizingSection';
-import InfoSection from './InfoSection';
-import ContactSection from './ContactSection';
+import PrioritizingSection from './prioritizing-section';
+import InfoSection from './info-section';
+import ContactSection from './contact-section';
 
 const MidSection: React.FC = () => {
   return (

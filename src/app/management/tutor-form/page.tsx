@@ -1,4 +1,4 @@
-import TutorForm from "./TutorForm";
+import TutorForm from "./tutor-form";
 
 const CadastrarTutor = () => (
   <div className="pt-6">

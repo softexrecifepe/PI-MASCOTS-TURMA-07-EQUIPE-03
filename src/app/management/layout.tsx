@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import HeaderManagement from "../components/HeaderManagement";
-import { Sidebar } from "../components/Sidebar";
+import HeaderManagement from "../components/header-management";
+import { Sidebar } from "../components/sidebar";
 
 interface ManagementLayoutProps {
   children: ReactNode;
@@ -28,7 +28,7 @@ const ManagementLayout: React.FC<ManagementLayoutProps> = ({ children }) => {
         { name: "Iniciar novo monitoramento", href: "/management/#" },
       ],
     },
-    { icon: "/file.svg", name: "Exames", href: "#" },
+    { icon: "/file.svg", name: "Exames", href: "/management/#" },
     { icon: "/calendar.svg", name: "Agenda", href: "#" },
     { icon: "/box.svg", name: "Inventário", href: "/management/inventory" },
   ];

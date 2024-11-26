@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import { Cards } from "../components/Cards";
+import { Cards } from "../components/cards";
 import { motion, AnimatePresence } from "framer-motion";
 import Calendar from "react-calendar"; 
 import "react-calendar/dist/Calendar.css"; 

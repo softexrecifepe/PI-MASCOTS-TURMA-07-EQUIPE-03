@@ -23,7 +23,7 @@ const Login: React.FC = () => {
       const result = await signInWithPopup(auth, googleProvider);
       console.log("Usuário logado:", result.user);
       router.push("/management");
-    } catch (error: any) {
+    } catch (error) {
       console.error("Erro ao logar:", error);
       setErrorMessage("Não foi possível fazer login. Tente novamente.");
     }
@@ -40,7 +40,7 @@ const Login: React.FC = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("Usuário logado:", userCredential.user);
       router.push("/management");
-    } catch (error: any) {
+    } catch (error) {
       console.error("Erro ao logar:", error);
       setErrorMessage("Não foi possível fazer login. Verifique suas credenciais.");
     }

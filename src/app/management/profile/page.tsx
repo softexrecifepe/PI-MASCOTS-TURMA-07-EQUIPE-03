@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import defaultProfilePic from "../../../public/pet-gless.jpg"; // Adicione uma imagem padrão para o perfil
+import defaultProfilePic from "../../../../public/pet-gless.jpg"; // Adicione uma imagem padrão para o perfil
 
 interface UserProfile {
   name: string;
