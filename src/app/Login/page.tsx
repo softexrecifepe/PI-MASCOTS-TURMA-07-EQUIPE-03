@@ -21,14 +21,21 @@ const Login: React.FC = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      console.log("Usuário logado:", result.user);
-      router.push("/management");
+      const user = result.user;
+      // Salvar os dados do usuário no localStorage
+      localStorage.setItem("userProfile", JSON.stringify({
+        name: user.displayName,
+        email: user.email,
+        profilePic: user.photoURL,
+      }));
+      console.log("Usuário logado:", user);
+      router.push("/management"); // Redirecionar para a página de perfil
     } catch (error) {
       console.error("Erro ao logar:", error);
       setErrorMessage("Não foi possível fazer login. Tente novamente.");
     }
   };
-
+  
   // Login com email e senha
   const handleEmailLogin = async () => {
     if (!email || !password) {
@@ -137,18 +144,7 @@ const Login: React.FC = () => {
             </>
           ) : (
             <>
-              {/* Login com Google */}
-              <motion.button
-                onClick={handleGoogleLogin}
-                className="w-full py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 mb-4 flex items-center justify-center"
-                whileHover={{ scale: 1.05 }}
-              >
-                <FaGoogle className="mr-2 text-lg" /> {/* Ícone do Google */}
-                Login com Google
-              </motion.button>
-
-              <div className="text-gray-500 mb-4 text-center">ou</div>
-
+              
               {/* Login com email e senha */}
               <div className="mb-4">
                 <input
@@ -172,8 +168,23 @@ const Login: React.FC = () => {
                 className="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 transition duration-300"
                 whileHover={{ scale: 1.05 }}
               >
-                Entrar com E-mail e Senha
+                Entrar
               </motion.button>
+
+              <div className="text-gray-500 text-center p-2 ">ou</div>
+
+            {/* Login com Google */}
+            <motion.button
+                onClick={handleGoogleLogin}
+                className="w-full py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 mb-4 flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <FaGoogle className="mr-2 text-lg" /> {/* Ícone do Google */}
+                Login com Google
+              </motion.button>
+
+              
+
 
               {/* Texto para redefinir a senha */}
               <div className="text-center mt-4">
