@@ -1,80 +1,89 @@
 import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
 
-interface DischargeProps {
+
+
+interface DischargeAnimalProps {
   hospitalizationId: number;
-  onDischargeSuccess: () => void; // Callback para atualizar a lista de internados
+  onDischargeSuccess: () => void;
+  onClick: () => void;
+  onRemoveFromLocalList: (hospitalizationId: number) => void;
 }
 
-/**
- * Componente para dar alta a um animal internado.
- * Envia uma requisição PUT à API e chama o callback para atualizar a lista.
- */
-const DischargeAnimal = ({ hospitalizationId, onDischargeSuccess }: DischargeProps) => {
-  const [isLoading, setIsLoading] = useState(false); // Controle do estado de carregamento
-  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Mensagem de erro, se houver
+
+
+const DischargeAnimal: React.FC<DischargeAnimalProps> = ({
+  hospitalizationId,
+  onDischargeSuccess,
+  onClick,
+  onRemoveFromLocalList,
+}) => {
+
+
+  const [loading, setLoading] = useState(false); // Estado para indicar carregamento
+  const [error, setError] = useState<string | null>(null); // Estado para mensagem de erro
+
 
   const handleDischarge = async () => {
-    // Confirmação antes de executar a alta
-    const confirmed = window.confirm(
-      "Tem certeza de que deseja dar alta ao animal?"
-    );
-    if (!confirmed) return;
-
-    setIsLoading(true); // Define o estado de carregamento
-    setErrorMessage(null); // Limpa mensagens de erro anteriores
-
+    setLoading(true); // Inicia o estado de carregamento
+    setError(null); // Limpa mensagens de erro anteriores
+     
+    onRemoveFromLocalList(hospitalizationId);// remove o animal da lista local
+     
+    setTimeout(() => {
+      // Se a requisição for bem-sucedida, chama a função para atualizar a lista
+      onDischargeSuccess();
+      
+    }, 500);
     try {
-      // Fazendo a requisição PUT à API
+      
+      // Fazendo a requisição PUT
       const response = await axios.put(
         `https://pi-t1-gp2-clinica.onrender.com/pets/hospitalizations/${hospitalizationId}`,
         {
-          discharge_date: new Date().toISOString(), // Define a data de alta como a data atual
-        },
-        {
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
-      if (response.status === 200 && response.data.success) {
-        alert("Alta confirmada com sucesso!");
-        onDischargeSuccess(); // Atualiza a lista após alta
-      } else {
-        setErrorMessage(
-          "Não foi possível confirmar a alta. Por favor, tente novamente."
-        );
+      if (response.status !== 200) {
+        throw new Error("Erro ao atualizar os dados.");
       }
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
-        console.error("Erro ao confirmar alta:", error.response?.data);
-        setErrorMessage(
-          `Erro ao confirmar alta: ${
-            error.response?.data?.message || "Erro desconhecido."
-          }`
-        );
+      
+      // Fecha o modal
+      if (onClick) {
+        onClick();
+      }
+      
+    } catch (err: unknown) {
+      console.error("Erro ao dar alta ao animal:", err);
+
+      // Trata o erro de forma segura
+      if (err instanceof Error) {
+        setError(err.message);
       } else {
-        console.error("Erro desconhecido:", error);
-        setErrorMessage("Ocorreu um erro inesperado. Por favor, tente novamente.");
+        setError("Erro desconhecido ao dar alta.");
       }
     } finally {
-      setIsLoading(false); // Finaliza o estado de carregamento
+      setLoading(false); // Finaliza o estado de carregamento
     }
+    
   };
-
 
   return (
     <div className="flex flex-row-reverse justify-start">
       <button
-        className={`btn ${isLoading ? "btn-disabled" : "btn-primary"} 
-        px-4 py-2 rounded bg-green-500 hover:bg-blue-700 text-white font-bold`}
         onClick={handleDischarge}
-        disabled={isLoading}
+        disabled={loading}
+        className={`px-4 py-2 rounded ${
+          loading ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-green-600"
+        } text-white`}
       >
-        {isLoading ? "Processando..." : "Confirmar Alta"}
+        {loading ? "Dando alta..." : "Dar Alta"}
       </button>
-      {errorMessage && (
-        <p className="mt-2 text-sm text-red-600">{errorMessage}</p>
-      )}
+
+      {error && <p className="text-red-500 mt-2">{error}</p>}
     </div>
   );
 };

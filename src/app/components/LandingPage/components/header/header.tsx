@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import NavBar from './NavBar';
+import NavBar from './navbar';
 import Image from 'next/image';
 
 const Header: React.FC = () => {

@@ -34,6 +34,10 @@ Este é um sistema de gerenciamento para uma clínica veterinária. Ele inclui f
   - Axios para chamadas à API
   - Biblioteca UUID para gerar identificadores únicos
 
+- **Autenticação e Banco de Dados:**
+
+  - Firebase (para autenticação com o Google e gerenciamento de dados)
+
 ## 📄 Utilização de API's
 
 ### Rota: Cadastro de Tutor

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/LandingPage/Header/Header';
-import MidSection from './components/LandingPage/MidSection/MidSection';
-import Footer from './components/LandingPage/Footer/Footer';
+import Header from './components/LandingPage/components/header/header';
+import MidSection from './components/LandingPage/components/midSection/mid-section';
+import Footer from './components/LandingPage/components/footer/footer';
 
 const HomePage: React.FC = () => {
   return (
